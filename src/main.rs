@@ -1,39 +1,16 @@
-use std::io::{self, stdout, Read};
+#![warn(clippy::all, clippy::pedantic)]
+mod editor;
+mod terminal;
+use termion::event::Key;
+use termion::input::TermRead;
 use termion::raw::IntoRawMode;
 
-fn to_ctrl_byte(c: char) -> u8 {
-    let byte = c as u8;
-    byte & 0b0001_1111
-}
-
-fn die(_e: std::io::Error) {
-    panic!("e");
-}
+use editor::Editor;
+pub use terminal::Terminal;
 
 fn main() {
-    let _stdout = stdout().into_raw_mode().unwrap();
-
-    for b in io::stdin().bytes(){
-        match b {
-            Ok(b) => {
-                let c = b as char;
-                if c .is_control() {
-                    println!("{:?} \r", b);
-                } else {
-                    println!("{:?} ({})\r", b, c);
-                }
-                if b == to_ctrl_byte('q') {
-                    break;
-                }
-            }
-        Err(err) => die(err),
-    
-        }   
-    
-    }
+    Editor::default();
+    Editor::default().run();
 }
 
-
-
-// https://www.philippflenker.com/hecto-chapter-2/
-// adding more
+// https://www.philippflenker.com/hecto-chapter-3/
