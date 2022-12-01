@@ -5,3 +5,5 @@
 src/main.rs:
 src/editor.rs:
 src/terminal.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.1.0
