@@ -1,0 +1,1 @@
+/home/brian/Programs/Rust/QuikEdit/target/debug/quikedit: /home/brian/Programs/Rust/QuikEdit/src/document.rs /home/brian/Programs/Rust/QuikEdit/src/editor.rs /home/brian/Programs/Rust/QuikEdit/src/main.rs /home/brian/Programs/Rust/QuikEdit/src/row.rs /home/brian/Programs/Rust/QuikEdit/src/terminal.rs

@@ -16,7 +16,7 @@ pub struct Terminal {
 
 impl Terminal {
     pub fn default() -> Result<Self, std::io::Error> {
-        let size = termion::terminal.size()?;
+        let size = termion::terminal_size()?;
         Ok(Self {
             size: Size {
                 width: size.0,
@@ -42,10 +42,10 @@ impl Terminal {
         y = y.saturating_add(1);
         let x = x as u16;
         let y = y as u16;
-        print!("{}", termion::cursor_position::Goto(x, y));
+        print!("{}", termion::cursor::Goto(x, y));
     }
 
-    pub fn flush() -> Result<(), std::in::Error> {
+    pub fn flush() -> Result<(), std::io::Error> {
         io::stdout().flush()
     }
 
